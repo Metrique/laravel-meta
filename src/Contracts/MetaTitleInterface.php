@@ -15,7 +15,7 @@ interface MetaTitleInterface
      * @param string $newTitle Set the title, use null to leave as default
      * @return $this
      */
-    public function set($newTitle);
+    public function set($title);
     
     /**
      * Enables/Disables prefix/suffix/seperator decoration of the title

@@ -4,6 +4,7 @@ namespace Metrique\Meta;
 
 use Illuminate\Contracts\Config\Repository as Config;
 use Metrique\Meta\Contracts\MetaRepositoryInterface;
+use Metrique\Meta\MetaTags;
 use Metrique\Meta\MetaTitle;
 
 class MetaRepository implements MetaRepositoryInterface
