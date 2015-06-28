@@ -38,8 +38,10 @@ laravel-meta includes a basic view to get your started, just drop `@include('lar
 - `$meta->title()->seperator($seperator)` Sets the title seperator.
 
 ### Tags
+
 - `$meta->tags()->toArray()` Return the tags in an array, in html format.
 - `$meta->tags()->add($attributes)` Add a new meta tag or set of meta tags
+
     ```
     $meta->tags()->add([
         ['charset'=>'utf-8'],
@@ -47,11 +49,12 @@ laravel-meta includes a basic view to get your started, just drop `@include('lar
     ]);
     ```
 - `$meta->tags()->remove($attributes)` Remove a meta tag or set of meta tags by key/value pairs. The value is treated as a wild card when it is set to null.
+
     ```
     $meta->tags()->remove([
         ['charset'=>null],
         ['name'=>'viewport', 'content'=>null]
     ]);
     ```
-- `$meta->tags()->clear()`
-- `$meta->tags()->template($template)`
+- `$meta->tags()->clear()` Clears all tags
+- `$meta->tags()->template($template)` Sets the template to be used to generate the meta tags, default is `<meta%s>` and uses `sprintf`.
