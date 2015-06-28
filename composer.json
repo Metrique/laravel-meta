@@ -1,0 +1,19 @@
+{
+    "name": "metrique/laravel-meta",
+    "description": "Easily manage meta tags",
+    "type": "git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Hudson",
+            "email": "support@shinobicorp.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Metrique\\": "src/"
+        },
+        "files": ["src/functions.php"]
+    },
+    "require": {}
+}
