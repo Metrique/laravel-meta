@@ -18,11 +18,11 @@ interface MetaTagsInterface
      *     ['name'=>'viewport', 'content'=>'width=device-width, initial-scale=1']
      * ]);
      * 
-     * @param array  $attributes
+     * @param array $attributes
      * @param boolean $overwriteMatchingKeys
      * @return $this.
      */
-    public function add($metTagAttributes);
+    public function add($attributes);
 
     /**
      * Remove a meta tag or set of meta tags by key/value pairs.

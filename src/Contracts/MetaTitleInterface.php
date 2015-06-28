@@ -12,7 +12,7 @@ interface MetaTitleInterface
 
     /**
      * Sets the title.
-     * @param string $newTitle Set the title, use null to leave as default
+     * @param string $title Set the title, use null to leave as default
      * @return $this
      */
     public function set($title);
