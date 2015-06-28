@@ -14,5 +14,7 @@
             "Metrique\\Meta\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "laravel/framework": "5.1.*"
+    }
 }
