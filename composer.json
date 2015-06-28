@@ -11,9 +11,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Metrique\\": "src/"
+            "Metrique\\Meta": "src/"
         },
-        "files": ["src/functions.php"]
     },
     "require": {}
 }
