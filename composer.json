@@ -1,7 +1,7 @@
 {
     "name": "metrique/laravel-meta",
     "description": "Easily manage meta tags",
-    "type": "git",
+    "type": "Library",
     "license": "MIT",
     "authors": [
         {
@@ -14,7 +14,7 @@
             "Metrique\\Meta\\": "src/"
         }
     },
-    "require": {
-        "laravel/framework": "5.1.*"
+    "require-dev": {
+        "laravel/framework": "^5.1"
     }
 }
