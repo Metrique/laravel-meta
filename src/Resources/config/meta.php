@@ -3,20 +3,41 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Meta tag defaults.
+    | Meta tag character limits.
     |--------------------------------------------------------------------------
     |
-    | This file is for storing the meta tags, and title data.
+    | Here you may set a character limit for meta tags and page titles. You may
+    | also set a suffix to be added when a string is trimmed.
+    */
+    'character' => [
+        'limit' = '155',
+        'suffix' = '...',
+    ],
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Page title settings.
+    |--------------------------------------------------------------------------
+    |
+    | Here you can set the default page titles for use when a page title isn't
+    | set. You may also set the title to have a prefix, suffix and separator.
     |
     */
-
     'title' => [
         'default' => 'Laravel Meta',
         'prefix' => '',
         'suffix' => 'Metrique',
-        'seperator'  => ' | ',
+        'separator'  => ' | ',
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Meta tag settings.
+    |--------------------------------------------------------------------------
+    |
+    | Here you may add a default set of tags for use within your web page.
+    |
+    */
     'tags' => [
         ['charset'=>'utf-8'],
         ['http-equiv'=>'X-UA-Compatible', 'content'=>'IE=edge,chrome=1'],

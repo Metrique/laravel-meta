@@ -8,9 +8,9 @@ use Metrique\Meta\Contracts\MetaRepositoryInterface as MetaRepository;
 class MetaViewComposer
 {
     /**
-     * The user repository implementation.
+     * The meta repository implementation.
      *
-     * @var UserRepository
+     * @var MetaRepository
      */
     protected $meta;
 
