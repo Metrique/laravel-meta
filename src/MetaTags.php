@@ -31,7 +31,6 @@ class MetaTags implements MetaTagsInterface
     public function toArray()
     {
         $tags = [];
-        $template = '<meta%s>';
 
         foreach ($this->tags as $tag)
         {
@@ -42,7 +41,7 @@ class MetaTags implements MetaTagsInterface
                 $attributes .= ' ' . $attribute . '="' . $value . '"';
             }
 
-            array_push($tags, sprintf($template, $attributes));
+            array_push($tags, sprintf($this->template, $attributes));
         }
 
         return array_unique($tags);
