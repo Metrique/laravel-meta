@@ -10,8 +10,8 @@ return [
     | also set a suffix to be added when a string is trimmed.
     */
     'character' => [
-        'limit' = '155',
-        'suffix' = '...',
+        'limit' => '155',
+        'suffix' => '...',
     ],
     
     /*
