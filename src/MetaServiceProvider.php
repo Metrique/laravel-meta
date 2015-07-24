@@ -37,6 +37,15 @@ class MetaServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerMetaRepository();
+    }
+
+    /**
+     * Register the MetaRepository binding
+     * @return void
+     */
+    private function registerMetaRepository()
+    {
         $this->app->singleton(
             MetaRepositoryInterface::class,
             MetaRepository::class
