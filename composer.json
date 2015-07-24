@@ -14,8 +14,10 @@
             "Metrique\\Meta\\": "src/"
         }
     },
+    "require": {
+        "illuminate/support": "^5.1"
+    },
     "require-dev": {
-        "php": ">=5.4.0",
-        "laravel/framework": "^5.1"
+        "php": ">=5.4.0"
     }
 }
