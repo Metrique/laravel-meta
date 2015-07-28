@@ -22,7 +22,7 @@
 
 Config defaults can be configured by editing `config/meta.php` in your main application directory.
 
-You can publish the  `config/meta.php` config file to your application config directory by running `php artisan vendor:publish`
+You can publish the `config/meta.php` config file to your application config directory by running `php artisan vendor:publish`
 
 ### Blade include
 
