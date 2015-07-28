@@ -26,7 +26,7 @@ class MetaTags implements MetaTagsInterface
     }
 
     /**
-     * {@inheritdocs}
+     * {@inheritdoc}
      */
     public function toArray()
     {
@@ -48,7 +48,7 @@ class MetaTags implements MetaTagsInterface
     }
 
     /**
-     * {@inheritdocs}
+     * {@inheritdoc}
      */
     public function add($attributes)
     {
@@ -67,6 +67,9 @@ class MetaTags implements MetaTagsInterface
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function remove($attributes)
     {   
         if($this->isList($attributes) === true)
@@ -114,7 +117,7 @@ class MetaTags implements MetaTagsInterface
     }
 
     /**
-     * {@inheritdocs}
+     * {@inheritdoc}
      */
     public function clear()
     {
@@ -124,7 +127,7 @@ class MetaTags implements MetaTagsInterface
     }
 
     /**
-     * {@inheritdocs}
+     * {@inheritdoc}
      */
     public function template($template)
     {
@@ -137,7 +140,7 @@ class MetaTags implements MetaTagsInterface
     }
 
     /**
-     * {@inheritdocs}
+     * {@inheritdoc}
      */
     protected function isList($array)
     {
