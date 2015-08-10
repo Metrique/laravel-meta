@@ -9,8 +9,9 @@ return [
     | Here you may set a character limit for meta tags and page titles. You may
     | also set a suffix to be added when a string is trimmed.
     */
-    'character' => [
-        'limit' => '155',
+    'character_limit' => [
+        'enabled' => false,
+        'length' => '155',
         'suffix' => '...',
     ],
     

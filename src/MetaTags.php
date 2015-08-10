@@ -2,11 +2,23 @@
 
 namespace Metrique\Meta;
 
-use Illuminate\Contracts\Config\Repository as Config;
 use Metrique\Meta\Contracts\MetaTagsInterface;
+
+use Illuminate\Contracts\Config\Repository as Config;
+use Stringy\Stringy;
 
 class MetaTags implements MetaTagsInterface
 {
+    /**
+     * Array to hold character limits
+     * @var array
+     */
+    public $character_limit = [
+        'enabled' => true,
+        'length' => 155,
+        'suffix' => '...',
+    ];
+
     /**
      * Array to hold list of tags.
      * @var [type]
@@ -17,12 +29,20 @@ class MetaTags implements MetaTagsInterface
      * Meta tag template.
      * @var string
      */
-    public $template = '<meta%s>';
+    public $template = '<meta %s>';
 
     public function __construct(Config $config)
     {
         // Populate the defaults
-        $this->tags = array_merge($this->tags, $config->get('meta.tags'));
+        $this->character_limit = array_merge(
+            $this->character_limit,
+            $config->get('meta.character_limit')
+        );
+
+        $this->tags = array_merge(
+            $this->tags,
+            $config->get('meta.tags')
+        );
     }
 
     /**
@@ -38,6 +58,14 @@ class MetaTags implements MetaTagsInterface
 
             foreach($tag as $attribute => $value)
             {
+                if($this->character_limit['enabled'])
+                {
+                    $value = Stringy::create($value)->safeTruncate(
+                        $this->character_limit['length'],
+                        $this->character_limit['suffix']
+                    );
+                }
+
                 $attributes .= ' ' . $attribute . '="' . $value . '"';
             }
 
