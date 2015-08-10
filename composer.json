@@ -14,10 +14,11 @@
             "Metrique\\Meta\\": "src/"
         }
     },
-    "require": {
-        "illuminate/support": "^5.1"
-    },
     "require-dev": {
         "php": ">=5.4.0"
+    },
+    "require": {
+        "illuminate/support": "^5.1",
+        "danielstjules/stringy": "^1.10"
     }
 }
