@@ -39,9 +39,9 @@ interface MetaTitleInterface
     public function suffix($suffix);
 
     /**
-     * Sets the title seperator.
-     * @param  string $newSeperator [description]
+     * Sets the title separator.
+     * @param  string $newSeparator [description]
      * @return $this
      */
-    public function seperator($seperator);
+    public function separator($separator);
 }

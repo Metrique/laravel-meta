@@ -4,6 +4,8 @@ namespace Metrique\Meta;
 
 use Metrique\Meta\Contracts\MetaTitleInterface;
 
+use Illuminate\Contracts\Config\Repository as Config;
+
 class MetaTitle implements MetaTitleInterface
 {
     /**
@@ -15,14 +17,17 @@ class MetaTitle implements MetaTitleInterface
         'default' => '',
         'prefix' => '',
         'suffix' => '',
-        'seperator' => '',
+        'separator' => '',
         'value' => '',
     ];
 
-    public function __construct(\Illuminate\Contracts\Config\Repository $config)
+    public function __construct(Config $config)
     {
         // Populate the defaults
-        $this->title = array_merge($this->title, $config->get('meta.title'));
+        $this->title = array_merge(
+            $this->title,
+            $config->get('meta.title')
+        );
     }
 
     /**
@@ -42,7 +47,7 @@ class MetaTitle implements MetaTitleInterface
 
         if(!empty($title) && !empty($this->title['prefix']))
         {
-            $prefix = $this->title['prefix'] . $this->title['seperator'];
+            $prefix = $this->title['prefix'] . $this->title['separator'];
         }
 
         // Suffix
@@ -50,7 +55,7 @@ class MetaTitle implements MetaTitleInterface
 
         if(!empty($title) && !empty($this->title['suffix']))
         {
-            $suffix = $this->title['seperator'] . $this->title['suffix'];
+            $suffix = $this->title['separator'] . $this->title['suffix'];
         }
 
         if($this->title['decorate'])
@@ -113,11 +118,11 @@ class MetaTitle implements MetaTitleInterface
     /**
      * {@inheritdoc}
      */
-    public function seperator($seperator)
+    public function separator($separator)
     {
-        if(is_string($seperator))
+        if(is_string($separator))
         {
-            $this->title['seperator'] = $seperator;
+            $this->title['separator'] = $separator;
         }
 
         return $this;
