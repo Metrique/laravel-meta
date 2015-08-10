@@ -5,9 +5,20 @@ namespace Metrique\Meta;
 use Metrique\Meta\Contracts\MetaTitleInterface;
 
 use Illuminate\Contracts\Config\Repository as Config;
+use Stringy\Stringy;
 
 class MetaTitle implements MetaTitleInterface
 {
+    /**
+     * Array to hold character limits
+     * @var array
+     */
+    public $character_limit = [
+        'enabled' => true,
+        'length' => 155,
+        'suffix' => '...',
+    ];
+
     /**
      * Title tag data populated with defaults.
      * @var array
@@ -24,6 +35,11 @@ class MetaTitle implements MetaTitleInterface
     public function __construct(Config $config)
     {
         // Populate the defaults
+        $this->character_limit = array_merge(
+            $this->character_limit,
+            $config->get('meta.character_limit')
+        );
+
         $this->title = array_merge(
             $this->title,
             $config->get('meta.title')
@@ -38,6 +54,14 @@ class MetaTitle implements MetaTitleInterface
         if(empty($this->title['value']))
         {
             $this->title['value'] = $this->title['default'];
+        }
+
+        if($this->character_limit['enabled'])
+        {
+            $this->title['value'] = Stringy::create($this->title['value'])->safeTruncate(
+                $this->character_limit['length'],
+                $this->character_limit['suffix']
+            );
         }
 
         $title = $this->title['value'];
