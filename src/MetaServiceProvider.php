@@ -18,7 +18,7 @@ class MetaServiceProvider extends ServiceProvider
         // Config
         $this->publishes([
             __DIR__.'/Resources/config/meta.php' => config_path('meta.php'),
-        ]);
+        ], 'meta-config');
 
         // View
         $this->loadViewsFrom(__DIR__.'/Resources/views', 'laravel-meta');
