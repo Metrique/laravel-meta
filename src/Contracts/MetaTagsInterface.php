@@ -22,7 +22,7 @@ interface MetaTagsInterface
      * @param boolean $overwriteMatchingKeys
      * @return $this.
      */
-    public function add($attributes);
+    public function add($attributes, $overwrite = true);
 
     /**
      * Remove a meta tag or set of meta tags by key/value pairs.
@@ -34,9 +34,10 @@ interface MetaTagsInterface
      * ]);
      * 
      * @param  array $matchingKeys
+     * @param boolean $removeContents
      * @return $this
      */
-    public function remove($attributes);
+    public function remove($attributes, $removeContents = false);
 
     /**
      * Clears all tags

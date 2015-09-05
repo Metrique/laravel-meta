@@ -78,13 +78,18 @@ class MetaTags implements MetaTagsInterface
     /**
      * {@inheritdoc}
      */
-    public function add($attributes)
+    public function add($attributes, $overwrite = true)
     {
+        if($overwrite)
+        {
+            $this->remove($attributes, true);            
+        }
+
         if($this->isList($attributes) === true)
         {
             foreach($attributes as $key => $value)
             {
-                $this->add($value);
+                $this->add($value, false);
             }
 
             return $this;
@@ -98,13 +103,26 @@ class MetaTags implements MetaTagsInterface
     /**
      * {@inheritdoc}
      */
-    public function remove($attributes)
-    {   
+    public function remove($attributes, $removeContents = true)
+    {
+        // Set contents of attributes to null.
+        if($removeContents)
+        {
+            foreach ($attributes as $key => $value)
+            {
+                if(array_key_exists('content', $value))
+                {
+                    $attributes[$key]['content'] = null;
+                }
+            }
+        }
+
+        // Is a list
         if($this->isList($attributes) === true)
         {
             foreach ($attributes as $key => $value)
             {
-                $this->remove($value);
+                $this->remove($value, false);
             }
 
             return $this;
@@ -140,6 +158,8 @@ class MetaTags implements MetaTagsInterface
                 unset($this->tags[$tagKey]);
             }
         }
+
+        $this->tags = array_values($this->tags);
 
         return $this;
     }
