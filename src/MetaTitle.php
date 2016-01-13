@@ -64,10 +64,10 @@ class MetaTitle implements MetaTitleInterface
             );
         }
 
-        $title = $this->title['value'];
+        $title = (string) $this->title['value'];
 
         // Prefix
-        $prefix = '';
+        $prefix = $this->title['prefix'];
 
         if(!empty($title) && !empty($this->title['prefix']))
         {
@@ -75,7 +75,7 @@ class MetaTitle implements MetaTitleInterface
         }
 
         // Suffix
-        $suffix = '';
+        $suffix = $this->title['suffix'];
 
         if(!empty($title) && !empty($this->title['suffix']))
         {
