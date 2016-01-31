@@ -11,6 +11,11 @@ interface MetaTitleInterface
     public function toString();
 
     /**
+     * Returns the title as a slug
+     */
+    public function toSlug();
+    
+    /**
      * Sets the title.
      * @param string $title Set the title, use null to leave as default
      * @return $this

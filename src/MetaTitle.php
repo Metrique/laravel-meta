@@ -90,6 +90,11 @@ class MetaTitle implements MetaTitleInterface
         return $title;
     }
 
+    public function toSlug()
+    {
+        return String::create($this->title['value'])->slugify();
+    }
+
     /**
      * {@inheritdoc}
      */
