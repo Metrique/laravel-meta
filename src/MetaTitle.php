@@ -92,7 +92,7 @@ class MetaTitle implements MetaTitleInterface
 
     public function toSlug()
     {
-        return String::create($this->title['value'])->slugify();
+        return Stringy::create($this->title['value'])->slugify();
     }
 
     /**
