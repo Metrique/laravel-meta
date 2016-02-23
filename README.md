@@ -14,7 +14,7 @@
 1. Add the above to the repositories section of your composer.json
 2. Add `"Metrique/laravel-meta": "dev-master"` to the require section of your composer.json.
 3. `composer update`
-4. Add `Metrique\Meta\MetaServiceProvider::class,` to your list of service providers. in `config/app.php`.
+4. Add `Metrique\Meta\MetaServiceProvider::class,` to your list of service providers in `config/app.php`.
 
 
 ## Usage
