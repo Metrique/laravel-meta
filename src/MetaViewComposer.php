@@ -3,24 +3,24 @@
 namespace Metrique\Meta;
 
 use Illuminate\Contracts\View\View;
-use Metrique\Meta\Contracts\MetaRepositoryInterface as MetaRepository;
+use Metrique\Meta\Contracts\MetaRepositoryInterface as Repository;
 
 class MetaViewComposer
 {
     /**
      * The meta repository implementation.
      *
-     * @var MetaRepository
+     * @var Repository
      */
     protected $meta;
 
     /**
      * Create a new profile composer.
      *
-     * @param  UserRepository  $users
+     * @param  Repository  $meta
      * @return void
      */
-    public function __construct(MetaRepository $meta)
+    public function __construct(Repository $meta)
     {
         // Dependencies automatically resolved by service container...
         $this->meta = $meta;
