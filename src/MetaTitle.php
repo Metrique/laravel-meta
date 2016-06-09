@@ -3,14 +3,14 @@
 namespace Metrique\Meta;
 
 use Metrique\Meta\Contracts\MetaTitleInterface;
-
 use Illuminate\Contracts\Config\Repository as Config;
 use Stringy\Stringy;
 
 class MetaTitle implements MetaTitleInterface
 {
     /**
-     * Array to hold character limits
+     * Array to hold character limits.
+     *
      * @var array
      */
     public $character_limit = [
@@ -21,6 +21,7 @@ class MetaTitle implements MetaTitleInterface
 
     /**
      * Title tag data populated with defaults.
+     *
      * @var array
      */
     public $title = [
@@ -51,13 +52,11 @@ class MetaTitle implements MetaTitleInterface
      */
     public function toString()
     {
-        if(empty($this->title['value']))
-        {
+        if (empty($this->title['value'])) {
             $this->title['value'] = $this->title['default'];
         }
 
-        if($this->character_limit['enabled'])
-        {
+        if ($this->character_limit['enabled']) {
             $this->title['value'] = Stringy::create($this->title['value'])->safeTruncate(
                 $this->character_limit['length'],
                 $this->character_limit['suffix']
@@ -69,30 +68,33 @@ class MetaTitle implements MetaTitleInterface
         // Prefix
         $prefix = $this->title['prefix'];
 
-        if(!empty($title) && !empty($this->title['prefix']))
-        {
-            $prefix = $this->title['prefix'] . $this->title['separator'];
+        if (!empty($title) && !empty($this->title['prefix'])) {
+            $prefix = $this->title['prefix'].$this->title['separator'];
         }
 
         // Suffix
         $suffix = $this->title['suffix'];
 
-        if(!empty($title) && !empty($this->title['suffix']))
-        {
-            $suffix = $this->title['separator'] . $this->title['suffix'];
+        if (!empty($title) && !empty($this->title['suffix'])) {
+            $suffix = $this->title['separator'].$this->title['suffix'];
         }
 
-        if($this->title['decorate'])
-        {
-            return $prefix . $title . $suffix;
+        if ($this->title['decorate']) {
+            return $prefix.$title.$suffix;
         }
-        
+
         return $title;
     }
 
     public function toSlug()
     {
-        return Stringy::create($this->title['value'])->slugify();
+        $slug = Stringy::create($this->title['value'])->slugify();
+
+        if (empty((string) $slug)) {
+            return;
+        }
+
+        return $slug;
     }
 
     /**
@@ -101,7 +103,7 @@ class MetaTitle implements MetaTitleInterface
     public function set($title)
     {
         // Title
-        if(is_string($title)) {
+        if (is_string($title)) {
             $this->title['value'] = $title;
         }
 
@@ -123,8 +125,7 @@ class MetaTitle implements MetaTitleInterface
      */
     public function prefix($prefix)
     {
-        if(is_string($prefix))
-        {
+        if (is_string($prefix)) {
             $this->title['prefix'] = $prefix;
         }
 
@@ -136,8 +137,7 @@ class MetaTitle implements MetaTitleInterface
      */
     public function suffix($suffix)
     {
-        if(is_string($suffix))
-        {
+        if (is_string($suffix)) {
             $this->title['suffix'] = $suffix;
         }
 
@@ -149,8 +149,7 @@ class MetaTitle implements MetaTitleInterface
      */
     public function separator($separator)
     {
-        if(is_string($separator))
-        {
+        if (is_string($separator)) {
             $this->title['separator'] = $separator;
         }
 
