@@ -14,7 +14,19 @@ return [
         'length' => '155',
         'suffix' => '...',
     ],
-    
+
+    /*
+    |--------------------------------------------------------------------------
+    | Page slug settings.
+    |--------------------------------------------------------------------------
+    |
+    | Here you can set the default slug title.
+    |
+    */
+    'slug' => [
+        'name' => 'super-slug',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Page title settings.
@@ -28,7 +40,7 @@ return [
         'default' => 'Laravel Meta',
         'prefix' => '',
         'suffix' => 'Metrique',
-        'separator'  => ' | ',
+        'separator' => ' | ',
     ],
 
     /*
@@ -40,9 +52,9 @@ return [
     |
     */
     'tags' => [
-        ['charset'=>'utf-8'],
-        ['http-equiv'=>'X-UA-Compatible', 'content'=>'IE=edge,chrome=1'],
-        ['name'=>'description', 'content'=>'Here lies the default description'],
-        ['name'=>'viewport', 'content'=>'width=device-width, initial-scale=1'],
+        ['charset' => 'utf-8'],
+        ['http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge,chrome=1'],
+        ['name' => 'description', 'content' => 'Here lies the default description'],
+        ['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'],
     ],
 ];

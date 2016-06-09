@@ -31,6 +31,7 @@ class MetaTitle implements MetaTitleInterface
         'suffix' => '',
         'separator' => '',
         'value' => '',
+        'slug' => '',
     ];
 
     public function __construct(Config $config)
