@@ -19,6 +19,6 @@
     },
     "require": {
         "illuminate/support": "^5.1",
-        "danielstjules/stringy": "^1.10"
+        "danielstjules/stringy": "^2.0"
     }
 }
